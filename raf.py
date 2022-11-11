@@ -25,15 +25,15 @@ class RaF(torch.nn.Module):
     def forward(self, inputs):
         for i in range(self.m):
             if i == 0:
-                x = torch.pow(inputs, torch.tensor([i]).to(device)) * self.m_weights[0]
+                x = torch.pow(inputs, torch.tensor([i]).to(device)) * self.m_weights[i]
             else:
-                x += torch.pow(inputs, torch.tensor([i]).to(device)) * self.m_weights[0]
+                x += torch.pow(inputs, torch.tensor([i]).to(device)) * self.m_weights[i]
 
         for i in range(self.n):
             if i == 0:
-                x2 = torch.pow(inputs, torch.tensor([i]).to(device)) * self.n_weights[0]
+                x2 = torch.pow(inputs, torch.tensor([i]).to(device)) * self.n_weights[i]
             else:
-                x2 += torch.pow(inputs, torch.tensor([i]).to(device)) * self.n_weights[0]
+                x2 += torch.pow(inputs, torch.tensor([i]).to(device)) * self.n_weights[i]
 
         x2 = 1 + torch.abs(x2)
         return x/x2
