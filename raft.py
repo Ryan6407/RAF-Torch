@@ -3,7 +3,10 @@ import torch.nn as nn
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-class RaFT(torch.nn.Module):
+class RaF(torch.nn.Module):
+    """
+    Implementation of the RAF activation function. See: https://arxiv.org/pdf/2208.14111.pdf
+    """
     def __init__(self, m, n):
         super().__init__()
         self.m = m
